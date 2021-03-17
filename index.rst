@@ -752,7 +752,7 @@ To test with an authenticator programmed in challenge-response mode, e.g. *SMS*:
 
 Load testing
 ============
-Multiple tools exist for load or stress testing a RADIUS server although public availability of such tool is increasingly scarce. GUI based tools supporting Windows includes **Dee's RADIUS Client** and **Evolynx RADIUS Load Test**. 
+Multiple tools exist for load or stress testing a RADIUS server although public availability of such tools is increasingly scarce. GUI based tools supporting Windows includes **Dee's RADIUS Client** and **Evolynx RADIUS Load Test**. 
 
 Both these tools (shown below) can be configured to run a set number of requests per second as well as use multiple threads. Important to note is that said tools works with *fixed* passwords only and as such may not generate the same computation effort on the authentication server as would the use of *One Time* Passwords (OTP's).
 
