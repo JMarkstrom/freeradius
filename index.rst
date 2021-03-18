@@ -98,8 +98,8 @@ To download the key file:
 #. Authenticate as operator and then navigate to the :guilabel:`Comms` tab
 #. Click to expand :guilabel:`Authentication Processing` and then expand :guilabel:`Authentication Agent Settings`
 
-   .. figure:: /images/freeradius/downloadKeyFile.png
-      :width: 80%
+   .. thumbnail:: /images/freeradius/downloadKeyFile.png
+      :align: center
 
 #. Click :guilabel:`Download` to generate and save the key file
 #. Transfer the :file:`Agent.bsidkey` to the FreeRADIUS host using your tool of choice
@@ -236,8 +236,8 @@ To run the configuration script:
    
       If you do select to use an external server then additional prompts will follow. These are **not** documented here. If you need guidance on these prompts please refer to official Thales product documentation.
 
-   .. figure:: /images/freeradius/runConfiguration.gif
-      :width: 100%
+   .. thumbnail:: /images/freeradius/runConfiguration.gif
+       :align: center
 
       Demonstration: Running the configuration script.
 
@@ -283,9 +283,9 @@ To add a RADIUS client:
 #. Type a name (any) for the RADIUS client and press :kbd:`Enter`
 #. Type a shared secret (the same secret must be in your client!) and press :kbd:`Enter`
 
-   .. figure:: /images/freeradius/addClient.gif
-      :width: 100%
-
+   .. thumbnail:: /images/freeradius/addClient.gif
+       :align: center
+       
       Demonstration: Running the client update script to add (create) a client.
 
 SAS/STA
@@ -299,9 +299,9 @@ To add a RADIUS client:
 #. Expand :guilabel:`Auth Nodes`
 #. Click :guilabel:`Add`
 #. Provide relevant attributes including name and IP address
-   
-   .. figure:: /images/freeradius/authNodes.png
-      :width: 80%
+
+   .. thumbnail:: /images/freeradius/authNodes.png
+       :align: center
 
 #. Click :guilabel:`Save`
 
@@ -688,19 +688,18 @@ All other parameters can be assumed optional. Note that for your convenience set
 Example requests and responses
 ------------------------------
 
-.. figure:: /images/freeradius/testingNTRadPingAccessAccept.png
-   :width: 100%
+.. thumbnail:: /images/freeradius/testingNTRadPingAccessAccept.png
+   :align: center
 
    Figure: "Access-Accept" is returned on successful authentication.
    
-.. figure:: /images/freeradius/testingNTRadPingAccessReject.png
-   :width: 100%
+.. thumbnail:: /images/freeradius/testingNTRadPingAccessReject.png
+   :align: center
 
    Figure: Access-Reject" is returned on unsuccessful authentication.
 
-.. figure:: /images/freeradius/testingNTRadPingNoResponse.png
-   :width: 100%
-   :class: with-border
+.. thumbnail:: /images/freeradius/testingNTRadPingNoResponse.png
+   :align: center
    
    Figure: An empty response is returned on misconfiguration or service unavailable. 
 
@@ -737,16 +736,16 @@ To test with an authenticator programmed in challenge-response mode, e.g. *SMS*:
    Refer to **Configuration** section above for base configuration!
 
 #. Enter any character on the **Password** field in order to trigger the :code:`Access-Challenge`
-
-   .. figure:: /images/freeradius/testingNTRadPingSubmitS.png
-      :width: 80%
+ 
+   .. thumbnail:: /images/freeradius/testingNTRadPingSubmitS.png
+      :align: center
 	  
 #. In the dropdown in the lower right corner, select **State**
 #. In the field next to aforementioned dropdown, carefully enter the state value as shown in the access-challenge
 #. Update the **Password** field with the response (typically as recieved over SMS)
-   
-   .. figure:: /images/freeradius/testingNTRadPingChallengeResponse.png
-      :width: 80%
+  
+   .. thumbnail:: /images/freeradius/testingNTRadPingChallengeResponse.png
+      :align: center
 	  
 #. Click :guilabel:`&Send` to submit the request
 
@@ -762,13 +761,13 @@ To perform more *realistic* load testing One Time Passwords should be used. For 
    
    Do not under any circumstances run load/stress testing against any Thales cloud or partner service hosting such as SafeNet Trusted Access. Thales performs testing on behalf of its customers. If you want to load test the FreeRADIUS agent then it must be done in isolation from SafeNet Trusted Access.  
 
-.. figure:: /images/freeradius/deesRadiusClientThreads.png
-   :width: 100%
+.. thumbnail:: /images/freeradius/deesRadiusClientThreads.png
+   :align: center
    
    Figure: Using Dee's RADIUS Client tool.
 
-.. figure:: /images/freeradius/evolynxRadiusLoadTest.png
-   :width: 100%
+.. thumbnail:: /images/freeradius/evolynxRadiusLoadTest.png
+   :align: center
    
    Figure: Using the Evolynx RADIUS Load Test tool.
    
