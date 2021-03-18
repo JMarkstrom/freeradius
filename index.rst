@@ -240,7 +240,9 @@ To run the configuration script:
    .. thumbnail:: /images/freeradius/runConfiguration.gif
       :align: center
 
-      Demonstration: Running the configuration script.
+      Running the configuration script.
+
+Demonstration: Running the configuration script
 
 .. tip::
    
