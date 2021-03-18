@@ -101,6 +101,7 @@ To download the key file:
    .. thumbnail:: /images/freeradius/downloadKeyFile.png
       :align: center
 
+
 #. Click :guilabel:`Download` to generate and save the key file
 #. Transfer the :file:`Agent.bsidkey` to the FreeRADIUS host using your tool of choice
 
@@ -237,7 +238,7 @@ To run the configuration script:
       If you do select to use an external server then additional prompts will follow. These are **not** documented here. If you need guidance on these prompts please refer to official Thales product documentation.
 
    .. thumbnail:: /images/freeradius/runConfiguration.gif
-       :align: center
+      :align: center
 
       Demonstration: Running the configuration script.
 
