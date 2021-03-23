@@ -98,8 +98,9 @@ To download the key file:
 #. Authenticate as operator and then navigate to the :guilabel:`Comms` tab
 #. Click to expand :guilabel:`Authentication Processing` and then expand :guilabel:`Authentication Agent Settings`
 
-   .. figure:: /images/freeradius/downloadKeyFile.png
+   .. thumbnail:: /images/freeradius/downloadKeyFile.png
       :width: 80%
+      :title: Figure: Downloading the key file from STA.
 
 #. Click :guilabel:`Download` to generate and save the key file
 #. Transfer the :file:`Agent.bsidkey` to the FreeRADIUS host using your tool of choice
@@ -236,10 +237,10 @@ To run the configuration script:
    
       If you do select to use an external server then additional prompts will follow. These are **not** documented here. If you need guidance on these prompts please refer to official Thales product documentation.
 
-   .. figure:: /images/freeradius/runConfiguration.gif
-      :width: 100%
-
-      Demonstration: Running the configuration script.
+.. thumbnail:: /images/freeradius/runConfiguration.gif
+   :title: Demonstration: Running the configuration script.
+   :show_caption: true
+|
 
 .. tip::
    
@@ -247,10 +248,9 @@ To run the configuration script:
    
    ::
 
-        printf '%s\n' Y Y cloud.eu.safenetid.com N ./Agent.bsidkey Y 1812 N N N | sudo sh ./FreeRADIUSv3.sh
+        printf '%s\n' Y Y cloud.eu.safenetid.com N ./Agent.bsidkey Y 1812 N N N | sh ./FreeRADIUSv3.sh
    
    In the above example, input to script prompts such as :code:`Y` (Yes) is provided, including line breaks :code:`\n` (newline). 
-   
    If you do take this approach you have to stay on top of new prompts being introduced in later versions of the script! 
 
 
@@ -283,10 +283,11 @@ To add a RADIUS client:
 #. Type a name (any) for the RADIUS client and press :kbd:`Enter`
 #. Type a shared secret (the same secret must be in your client!) and press :kbd:`Enter`
 
-   .. figure:: /images/freeradius/addClient.gif
-      :width: 100%
-
-      Demonstration: Running the client update script to add (create) a client.
+.. thumbnail:: /images/freeradius/addClient.gif
+   :align: center
+   :title: Demonstration: Running the client update script to add (create) a client.
+   :show_caption: true
+|
 
 SAS/STA
 -------
@@ -299,9 +300,11 @@ To add a RADIUS client:
 #. Expand :guilabel:`Auth Nodes`
 #. Click :guilabel:`Add`
 #. Provide relevant attributes including name and IP address
-   
-   .. figure:: /images/freeradius/authNodes.png
+
+   .. thumbnail:: /images/freeradius/authNodes.png
       :width: 80%
+      :title: Figure: Configuring the RADIUS client as an Auth Node in STA.
+
 
 #. Click :guilabel:`Save`
 
@@ -663,49 +666,42 @@ Configuration
 Configuring NTRadPing is generally self-explanatory. As such the following table captures the key configuration parameters.
 All other parameters can be assumed optional. Note that for your convenience settings are persisted when closing the app.
 
-
-.. list-table:: 
-   :widths: 10 90
-   :header-rows: 1
-   :stub-columns: 1
-
-   * - Property
-     - Explanation
-   * - RADIUS Server
-     - FreeRADIUS host IP/FQDN 
-   * - Port
-     - 1812
-   * - RADIUS Secret key
-     - Shared secret (see clients file)
-   * - User-Name
-     - SAS/STA username
-   * - Password
-     - OTP
-   * - Request type
-     - Authentication Request
-
++-------------------+------------------------------------------------------+
+| Property          | Explanation                                          |
++===================+======================================================+
+| RADIUS Server     | FreeRADIUS host IP/FQDN                              | 
++-------------------+------------------------------------------------------+
+| Port              | 1812                                                 |
++-------------------+------------------------------------------------------+
+| RADIUS Secret key | Shared secret (see clients file)                     |
++-------------------+------------------------------------------------------+
+| User-Name         | SAS/STA username                                     |
++-------------------+------------------------------------------------------+
+| Password          | OTP                                                  |
++-------------------+------------------------------------------------------+
+| Request type      | Authentication Request                               |
++-------------------+------------------------------------------------------+
 
 Example requests and responses
 ------------------------------
 
-.. figure:: /images/freeradius/testingNTRadPingAccessAccept.png
-   :width: 100%
+.. thumbnail:: /images/freeradius/testingNTRadPingAccessAccept.png
+   :title: Figure: Access-Accept is returned on successful authentication.
+   :show_caption: true
+|
 
-   Figure: "Access-Accept" is returned on successful authentication.
-   
-.. figure:: /images/freeradius/testingNTRadPingAccessReject.png
-   :width: 100%
+.. thumbnail:: /images/freeradius/testingNTRadPingAccessReject.png
+   :title: Figure: Access-Reject is returned on unsuccessful authentication.
+   :show_caption: true
+|
 
-   Figure: Access-Reject" is returned on unsuccessful authentication.
+.. thumbnail:: /images/freeradius/testingNTRadPingNoResponse.png
+   :title: Figure: An empty response is returned (configurable) on misconfiguration or service unavailable.
+   :show_caption: true
+|
 
-.. figure:: /images/freeradius/testingNTRadPingNoResponse.png
-   :width: 100%
-   :class: with-border
-   
-   Figure: An empty response is returned on misconfiguration or service unavailable. 
-
-   .. attention::
-      The latest SafeNet FreeRADIUS agent implements a :code:`do_not_respond` policy to allow for customer controlled failover. Earlier versions of the agent may respond with Access-Reject when service is unavailable.
+.. attention::
+   The latest SafeNet FreeRADIUS agent implements a configurable :code:`do_not_respond` policy to allow for customer controlled fail-over. Depending on configuration the agent may respond with Access-Reject when service is unavailable.
 
 How to test using OTP (TOTP/HOTP)
 ---------------------------------
@@ -738,15 +734,17 @@ To test with an authenticator programmed in challenge-response mode, e.g. *SMS*:
 
 #. Enter any character on the **Password** field in order to trigger the :code:`Access-Challenge`
 
-   .. figure:: /images/freeradius/testingNTRadPingSubmitS.png
-      :width: 80%
+   .. thumbnail:: /images/freeradius/testingNTRadPingSubmitS.png
+      :width: 80%   
+      :title: Figure: Triggering a challenge.	  
 	  
-#. In the dropdown in the lower right corner, select **State**
-#. In the field next to aforementioned dropdown, carefully enter the state value as shown in the access-challenge
-#. Update the **Password** field with the response (typically as recieved over SMS)
-   
-   .. figure:: /images/freeradius/testingNTRadPingChallengeResponse.png
+#. In the drop-down in the lower right corner, select **State**
+#. In the field next to aforementioned drop-down, carefully enter the state value as shown in the access-challenge
+#. Update the **Password** field with the response (typically as received over SMS)
+
+   .. thumbnail:: /images/freeradius/testingNTRadPingChallengeResponse.png
       :width: 80%
+      :title: Figure: Sending the response.	  
 	  
 #. Click :guilabel:`&Send` to submit the request
 
@@ -756,21 +754,22 @@ Multiple tools exist for load or stress testing a RADIUS server although public 
 
 Both these tools (shown below) can be configured to run a set number of requests per second as well as use multiple threads. Important to note is that said tools works with *fixed* passwords only and as such may not generate the same computation effort on the authentication server as would the use of *One Time* Passwords (OTP's).
 
-To perform more *realistic* load testing One Time Passwords should be used. For Thales internal purposes, in Operations and Engineering, *additional* test tools exist that can generate OTP from the MP-1 software authenticator. This is expected to be equivialant to using MobilePASS+ in terms of server-side computation effort. While MP-1 is deprecated, customers with an existing license capacity may be able to build a test tool leveraging MP-1 SDK and a command line test tool such as **radclient**.
+To perform more *realistic* load testing One Time Passwords should be used. For Thales internal purposes, in Operations and Engineering, *additional* test tools exist that can generate OTP from the MP-1 software authenticator. This is expected to be equivalent to using MobilePASS+ in terms of server-side computation effort. While MP-1 is deprecated, customers with an existing license capacity may be able to build a test tool leveraging MP-1 SDK and a command line test tool such as **radclient**.
 
 .. warning::
    
    Do not under any circumstances run load/stress testing against any Thales cloud or partner service hosting such as SafeNet Trusted Access. Thales performs testing on behalf of its customers. If you want to load test the FreeRADIUS agent then it must be done in isolation from SafeNet Trusted Access.  
 
-.. figure:: /images/freeradius/deesRadiusClientThreads.png
-   :width: 100%
-   
-   Figure: Using Dee's RADIUS Client tool.
+.. thumbnail:: /images/freeradius/deesRadiusClientThreads.png
+   :title: Figure: Using Dee's RADIUS Client tool.
+   :show_caption: true
+|
 
-.. figure:: /images/freeradius/evolynxRadiusLoadTest.png
-   :width: 100%
-   
-   Figure: Using the Evolynx RADIUS Load Test tool.
+.. thumbnail:: /images/freeradius/evolynxRadiusLoadTest.png
+   :title: Figure: Using the Evolynx RADIUS Load Test tool.
+   :show_caption: true
+| 
+
    
    
 Upgrading 
