@@ -27,6 +27,10 @@ FreeRADIUS takes in a standardized RADIUS request over UDP on port 1812 (configu
 
 This 'forwarding' as well as the return decision (accept/reject) is done using SafeNet proprietary encryption over TLS (TCP port 443) facilitated through the use of a key file (the :file:`Agent.bsidkey`) as well as explicit authentication node ("auth node") authorization in the SAS or STA virtual server.
  
+ .. thumbnail:: /images/freeradius/freeRADIUSArchitecture.png
+   :title: Figure: High level deployment architecture using FreeRADIUS.
+   :show_caption: true
+|
 
 Installation
 ^^^^^^^^^^^^
