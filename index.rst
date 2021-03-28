@@ -335,7 +335,8 @@ Configure FreeRADIUS to start automatically:
 Deployment Automation
 ^^^^^^^^^^^^^^^^^^^^^
 
-Youtube video here
+.. youtube:: 4O2Q-KbYXWY
+
 
 Using Cloud-Init
 ================
