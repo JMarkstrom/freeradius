@@ -34,7 +34,7 @@ extensions = [
     'sphinx_copybutton',
 	'sphinxcontrib.images',
 	'sphinx_rtd_theme',
-	'sphinxcontrib.yt',
+	'sphinxcontrib.youtube',
     'sphinx_tabs.tabs'
 ]
 
