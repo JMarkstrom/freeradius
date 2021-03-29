@@ -31,10 +31,11 @@ release = '1.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx_copybutton',
+        'sphinx_copybutton',
 	'sphinxcontrib.images',
 	'sphinx_rtd_theme',
-    'sphinx_tabs.tabs'
+        'sphinx_tabs.tabs',
+	'sphinxcontrib.yt'	
 ]
 
 # Add any paths that contain templates here, relative to this directory.
