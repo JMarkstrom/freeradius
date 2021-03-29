@@ -336,6 +336,7 @@ Deployment Automation
 ^^^^^^^^^^^^^^^^^^^^^
 
 
+  .. youtube:: 4O2Q-KbYXWY
 
 Using Cloud-Init
 ================
