@@ -671,10 +671,9 @@ Testing with NTRadPing
 Installation
 ------------
 
-To get started with the NTRadPing test tool `download <https://community.microfocus.com/dcvta86296/attachments/dcvta86296/OES_Tips/148/1/ntradping.zip>`__ and unpack the tool and then double-click on :file:`NTRADPING.EXE`.
+To get started with the NTRadPing test tool, click :download:`here <files/ntradping.zip>` to download it.
+Once downloaded, unpack the tool and then double-click on :file:`NTRADPING.EXE` to run it.
 
-.. tip::
-   Download `NTRadPing 1.5 <https://community.microfocus.com/dcvta86296/attachments/dcvta86296/OES_Tips/148/1/ntradping.zip>`__ here.
 
 
 Configuration
