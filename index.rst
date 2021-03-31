@@ -88,8 +88,8 @@ Configuration
 
 At a high level there are two major configuration steps once the SafeNet FreeRADIUS agent is installed:
 
-*  :ref: `Configuring FreeRADIUS<configure-freeradius>`
-*  :ref: `Configuring client(s)<configure-clients>`
+*  :ref:`Configuring FreeRADIUS<configure-freeradius>`
+*  :ref:`Configuring client(s)<configure-clients>`
 
 The first step above configures FreeRADIUS to be able to address either SAS or STA with RADIUS related requests and the second step then configures any client -that is: any system or service that will authenticate users over RADIUS, to be *authorized* to send requests to FreeRADIUS.
 
