@@ -88,10 +88,12 @@ Configuration
 
 At a high level there are two major configuration steps once the SafeNet FreeRADIUS agent is installed:
 
-*  **Configuring FreeRADIUS**
-*  **Configuring client(s)**
+*  :ref: `Configuring FreeRADIUS<configure-freeradius>`
+*  :ref: `Configuring client(s)<configure-clients>`
 
-The first step above configures FreeRADIUS to be able to address either SAS or STA with RADIUS related requests and the second step then configures any client -that is: any system or service that will authenticate users over RADIUS, to be *authorized* to send requests to FreeRADIUS. Notably this step also involves defining the same client(s) in SAS or STA. Both topics are covered extensively below.
+The first step above configures FreeRADIUS to be able to address either SAS or STA with RADIUS related requests and the second step then configures any client -that is: any system or service that will authenticate users over RADIUS, to be *authorized* to send requests to FreeRADIUS.
+
+.. _configure-freeradius:
 
 Configuring FreeRADIUS
 ======================
@@ -260,11 +262,12 @@ To run the configuration script:
    In the above example, input to script prompts such as :code:`Y` (Yes) is provided, including line breaks :code:`\n` (newline).
    If you do take this approach you have to stay on top of new prompts being introduced in later versions of the script!
 
+.. _configure-clients:
 
 Configuring client(s)
 =====================
 
-RADIUS clients such as your NAS or test tool must be added *both* to the SafeNet FreeRADIUS agent and to SAS/STA.
+RADIUS clients such as your NAS or test tool must be added to the SafeNet FreeRADIUS agent, and in addition the FreeRADIUS agent itself must be added as a client (auth node) to SAS/STA. To do so follow the below instructions:
 
 
 FreeRADIUS
@@ -300,9 +303,9 @@ To add a RADIUS client:
 SAS/STA
 -------
 
-The same clients added in FreeRADIUS using the :code:`Client_Updater.sh` script must also be added to SAS or STA.
+Next, the FreeRADIUS host IP must also be added to SAS or STA as an *Auth Node*.
 
-To add a RADIUS client:
+To add the FreeRADIUS agent host as SAS/STA auth node:
 
 #. Open a browser and navigate to **SAS/STA**
 #. Authenticate as operator and then navigate to the :guilabel:`Comms` tab
@@ -312,7 +315,7 @@ To add a RADIUS client:
 
    .. thumbnail:: /images/freeradius/authNodes.png
       :width: 80%
-      :title: Figure: Configuring the RADIUS client as an Auth Node in STA.
+      :title: Figure: Configuring the FreeRADIUS host as an Auth Node in STA.
 
 
 #. Click :guilabel:`Save`
