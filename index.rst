@@ -688,7 +688,8 @@ The most basic test plan might look as follows:
 +------+-----------------------+-----------------+-------------------------+
 | TC 2 | Send invalid OTP      | access-reject   |                         |
 +------+-----------------------+-----------------+-------------------------+
-| TC 3 | Disable service       | (no response)   |                         |
+| TC 3 | Disable service       | no response /   |                         |
+|      |                       | access-reject   |                         |
 +------+-----------------------+-----------------+-------------------------+
 
 .. attention::
