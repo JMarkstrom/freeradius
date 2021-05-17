@@ -200,7 +200,7 @@ To run the configuration script:
 
    .. tip::
 
-      An *existing* alternative to password concatenation when multiple credentials are to be evaluated is to use `Pre-Authentication Rules <https://thalesdocs.com/sta/Content/STA/Policies/preAuthRls.htm>`_ in SAS and STA. 
+      An *existing* alternative to password concatenation when multiple credentials are to be evaluated is to use **Pre-Authentication Rules** in SAS and STA. 
 
    .. note::
 
