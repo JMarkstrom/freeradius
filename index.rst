@@ -50,7 +50,7 @@ Installation
 
        sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
-#. Install Docker (and Containerd) answering ‘yes’ to prompts:
+#. Install Docker (and Containerd) answering :kbd:`yes` to prompts:
 
    ::
 
@@ -139,20 +139,22 @@ To run the configuration script:
    .. code-block:: text
       :emphasize-lines: 3
 
-      Default protocol is http. Change to https? Y/N
-      Ensure that Y is entered if using SAS cloud
+      The default protocol is HTTP. Change to HTTPS (recommended)? Y/N
+      If using SafeNet Trusted Access (STA) ensure that Y is entered.
       y
 
 #. Type the FQDN of your SAS or STA service (refer to table below for guidance) and press :kbd:`Enter`
 
    .. code-block:: text
-      :emphasize-lines: 2
+      :emphasize-lines: 3
 
-      Please Enter SafeNet Authentication Service IP or FQDN.
+      Please enter the Fully Qualified Domain Name (FQDN) of the authentication service (SAS/STA).
+      NOTE: If using SafeNet Authentication Service (SAS-PCE) IP address is optionally permitted.
       cloud.eu.safenetid.com
 
-      Validating the SAS Token Validator URL is accessible...
-      The SAS Token Validator URL is accessible.
+      Making sure the authentication endpoint is accessible...
+      The authentication endpoint is accessible.
+
 
 
    +---------+-------------------------------------------------------------------------+
@@ -171,7 +173,7 @@ To run the configuration script:
       :emphasize-lines: 3
 
       Is the SAS RADIUS Client API URL accessible? Y/N
-      Ensure that N is entered if using SAS cloud
+      If using SafeNet Trusted Access (STA) ensure that N is entered.
       n
 
    .. attention::
@@ -182,10 +184,47 @@ To run the configuration script:
    .. code-block:: text
       :emphasize-lines: 2
 
-      Enter complete path of Agent BSID key file.
+      Please enter the complete path of the agent BSID key file (Agent.bsidkey).
       ./Agent.bsidkey
-      Validating if Agent BSID key file exists at the given path...
+      
+      Making sure the agent BSID key file exists at the provided path...
       Agent BSID key file exists.
+
+#. Press :kbd:`N` when asked about password concatenation (see note)
+
+   .. code-block:: text
+      :emphasize-lines: 2
+
+      Do you want to enable validation of concatenated LDAP Password+OTP as a single field? Y/N
+      n
+
+   .. tip::
+
+      An *existing* alternative to password concatenation when multiple credentials are to be evaluated is to use `Pre-Authentication Rules <https://thalesdocs.com/sta/Content/STA/Policies/preAuthRls.htm>`_ in SAS and STA. 
+
+   .. note::
+
+      Pressing :kbd:`Y` will configure a logic where the FreeRADIUS agent takes in a *concatenated* credential and then splits it using a defined delimiter. The split credentials are validated against a defined LDAP server as well as towards SAS or STA. From an end-user perspective the user will submit a single field credential, e.g :code:`password-123456` which is then *split* at the backend into :code:`password` and :code:`123456`.  	  
+
+#. Press :kbd:`Y` when asked about silent response configuration (see note)
+
+   .. code-block:: text
+      :emphasize-lines: 3
+	  
+      Do you want the service to be silent (do_not_respond) when SAS/STA is unavailable? Y/N
+      NOTE: Not responding may help customer controlled failover.
+      y
+      
+      Setting Value Accordingly
+
+   .. note::
+
+      Pressing :kbd:`Y` will configure the FreeRADIUS agent to simply *not respond* in case of authentication service failure (SAS or STA is down). This allows the customer or service provider to configure RADIUS clients to direct traffic towards a different FreeRADIUS agent (and it's paired authentication service) to achieve High Availability (HA).
+	  
+   .. attention::	  
+	  
+	  Pressing :kbd:`N` will instead configure the FreeRADIUS agent to return :code:`Access-Reject` on service outage, resulting in authentication failure.
+
 
 #. Press :kbd:`Y` when asked about PEAP support (see note)
 
@@ -211,9 +250,12 @@ To run the configuration script:
 #. When prompted about UTF8 support, press :kbd:`N` (see note)
 
    .. code-block:: text
-      :emphasize-lines: 2
+      :emphasize-lines: 4
 
-      By Default the FreeRADIUS agent supports iso-8859-1 encoding. Change to UTF8? Y/N
+      
+      By default the FreeRADIUS agent is configured for ISO-8859-1 encoding. Change to UTF8? Y/N
+      NOTE: Changing to UTF8 may help support national characters such as å,ä,ö
+      (but these MUST be supported in the full architecture).
       n
 
    .. note::
@@ -257,7 +299,7 @@ To run the configuration script:
 
    ::
 
-        printf '%s\n' Y Y cloud.eu.safenetid.com N ./Agent.bsidkey Y 1812 N N N | sh ./FreeRADIUSv3.sh
+        printf '%s\n' Y Y cloud.eu.safenetid.com N ./Agent.bsidkey N Y Y 1812 N N N | sh ./FreeRADIUSv3.sh
 
    In the above example, input to script prompts such as :code:`Y` (Yes) is provided, including line breaks :code:`\n` (newline).
    If you do take this approach you have to stay on top of new prompts being introduced in later versions of the script!
