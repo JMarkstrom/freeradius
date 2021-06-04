@@ -80,6 +80,11 @@ Installation
 
        sudo systemctl enable containerd.service
 
+#. Load the FreeRADIUS Agent Docker image:
+
+   ::
+
+       docker load --input <image name>.tar
 
 Configuration
 ^^^^^^^^^^^^^
