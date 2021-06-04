@@ -84,7 +84,7 @@ Installation
 
    ::
 
-       docker load --input <image name>.tar
+       docker load -i <image name>.tar
 
 Configuration
 ^^^^^^^^^^^^^
