@@ -1,0 +1,34 @@
+<license>
+    <services>
+        <service>
+            <name>Workspace Edition Evaluation</name>
+            <id>SUB_SERVICE_SET_WORKSPACE_EDITION_EVALUATION</id>
+        </service>
+    </services>
+    <hardware>
+        <property type="macaddress" mode="required">08:00:27:89:AA:3D</property>
+    </hardware>
+    <licensecategory>evaluation</licensecategory>
+    <licenseenddate>20230320</licenseenddate>
+    <licensekey>WE-E-7OFNN</licensekey>
+    <licenseid>822547d9-6b8d-4d72-924e-f08aa6681d6c</licenseid>
+    <deploy>
+        <warehouseID>IGEL Subscription Server</warehouseID>
+        <orderID>demo-license-order-2022-12-20T07:57:11.447</orderID>
+    </deploy>
+</license>
+<signature>
+<cert>
+<fingerprint>7C:45:C8:CC:C3:48:49:0E:69:D8:80:D6:48:F7:42:D0:FC:FF:71:30</fingerprint>
+</cert>
+<value>CPkk3SYh6eCLlLuNL+92rqheVe4cYfqUoU2L4LDVxP1hGdvtCj18ifUrb++3J5oZqKTWNkTpgUw5
+teRDQjJF+LUA9JGDmGzwl8SEZQfEMI8w6oZIgZRfjS7YzsxR8DvFkISBTzJCA1pwyPnbze2C8Bcb
+5uhKtqLOhs1O+hV5HgbjK6ONIJcqWai2fkRc+Yx4hAT2RyXwSc4l9xMshDaNsSZkc+S8WILOr6f4
+/troTaFpjuWolGGpRL24Trye5jzxTgzC8NLXXzX3AMaMlP7zzhcJp1lTEXYTGgoZwQD2X6/Cjdm0
+K/1++NnIc9HgwcZnij8BkRyocHImj2/Rq4MuixH1mDhp7swnkeEhjJECgTj3FX7Vpzt72HoZsBWt
+YpGqdGsQyBB6ruqE1VnZnu1hs6ncAcwdZgMiXRdmnqSKUgSZpZfhLWc6DdMJJ+JHM53B+qP/l7GH
+YFmN2f+JfT0OZqgp627TMGA1WSp57JF4hcuVIf+gF9M6DKq+5LL9Llky08oCjR/BCLceT+vwBeHF
+apX2XtUsBSBSBuExnx3e0Ov61R6dR2AmJPr/vpuRRLd9aLrHFCASOIFMegHqxO1/u1jZFTL20VpY
+TWka8EfwI18d57gTRWyLQcVfYO3lQXDdu8tUJq+8t7INGyraF016kWtWc0xae5spkvkz43EsMvE=
+</value>
+</signature>
